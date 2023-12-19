@@ -6,6 +6,7 @@ public final class ImageCaptioningRequest {
         let vectornizer = try ResNet50().model
         let vectornizerMLModel = try VNCoreMLModel(for: vectornizer)
         vectornizerRequest = VNCoreMLRequest(model: vectornizerMLModel)
+        vectornizerRequest.imageCropAndScaleOption = .scaleFill
         tokenizer = try Tokenizer().model
     }
     
